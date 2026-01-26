@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Jersey+15&family=Noto+Sans+Mono:wght@100..900&family=Tiny5&display=swap');
+
+body,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent initial flash */
+html {
+  background: #0a0a0f;
+}
+
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+main {
+  font-family: var(--font-tiny5);
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+button {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+:root {
+  /* Fonts */
+  --pixel: 'Tiny5', serif;
+  --bubbly: 'Coiny', cursive;
+  --serif: 'Jersey 15', serif;
+  --mono: 'Noto Sans Mono', monospace;
+}
