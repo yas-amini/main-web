@@ -4,7 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Linneaeas",
+  title: "Portfolio | Yasamin Amini 🚀",
   description: "App & Web developer",
   icons: {
     icon: "/character.png",
@@ -46,7 +46,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-
         <main>{children}</main>
       </body>
     </html>
