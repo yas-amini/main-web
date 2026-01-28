@@ -20,7 +20,7 @@ const ImageWrapper = styled.div`
   box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
   position: relative;
 
-  video {
+  img {
     image-rendering: high-quality;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -82,20 +82,17 @@ export default function Hero() {
       <Title>[ DEVELOPER ]</Title>
       <Heading>Yasamin Amini</Heading>
       <ImageWrapper>
-        <video
+        <img
           src="/barbie.png"
-          autoPlay
-          loop
-          muted
-          playsInline
+          alt="Profile"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </ImageWrapper>
 
       <Text>
-        I build scalable web and mobile applications. Always exploring new
-        tools, frameworks, and better ways to solve problems. Currently diving
-        deep into mobile development and on-device AI.
+        I build accessible, user-friendly web interfaces using HTML, CSS and
+        JavaScript. Currently studying React & TypeScript — seeking a LIA
+        internship (Apr 2026) to contribute to real product teams in Sweden.
       </Text>
 
       <Text>
