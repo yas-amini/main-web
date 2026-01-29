@@ -136,14 +136,14 @@ export default function Contact() {
 
         <ContactCard>
           <CTA>
-            I'm actively seeking{" "}
-            <Highlight>LIA internship opportunities</Highlight> starting April
-            2026 in Stockholm. Open to frontend development roles where I can
-            learn and contribute to real projects.
+            Frontend development student at EC Utbildning (2025–2027). Seeking{" "}
+            <Highlight>LIA internship from April 2026</Highlight> in Stockholm.
+            Open to frontend roles where I can learn and contribute to real
+            projects.
           </CTA>
 
-          <EmailLink href="mailto:your.email@example.com">
-            your.email@example.com
+          <EmailLink href="mailto:yasamin.amini@email.com">
+            yasamin.amini@email.com
           </EmailLink>
 
           <LinksRow>

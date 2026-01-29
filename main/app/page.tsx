@@ -4,9 +4,7 @@ import styled from "@emotion/styled";
 import Navigation from "./components/Navigation";
 import Hero from "./hero/Hero";
 import Projects from "./sections/Projects";
-import Skills from "./sections/Skills";
 import Timeline from "./timeline/Timeline";
-import About from "./sections/About";
 import Contact from "./sections/Contact";
 
 const Container = styled.div`
@@ -23,9 +21,7 @@ export default function Page() {
       <Navigation />
       <Hero />
       <Projects />
-      <Skills />
       <Timeline />
-      <About />
       <Contact />
     </Container>
   );
