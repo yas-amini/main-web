@@ -3,6 +3,8 @@
 import styled from "@emotion/styled";
 import { projects, Project } from "../data/projectsData";
 import { Title, Heading, Text, BadgeMD } from "../styles";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -119,17 +121,16 @@ const ProjectLink = styled.a`
 `;
 
 export default function Projects() {
+  const { language } = useLanguage();
+  const t = translations[language].projects;
   const featuredProjects = projects.filter((p) => p.featured);
 
   return (
     <Section id="projects">
       <Container>
         <Header>
-          <Title>[ PROJECTS ]</Title>
-          <Heading>What I've Built</Heading>
-          <Text>
-            A selection of projects showcasing my skills in frontend development
-          </Text>
+          <Title>{t.title}</Title>
+          <Heading>{t.heading}</Heading>
         </Header>
 
         <ProjectsGrid>
@@ -164,7 +165,7 @@ export default function Projects() {
                           d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                         />
                       </svg>
-                      Live Demo
+                      {t.viewLive}
                     </ProjectLink>
                   )}
                   {project.githubUrl && (

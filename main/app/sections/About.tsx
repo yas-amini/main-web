@@ -2,6 +2,8 @@
 
 import styled from "@emotion/styled";
 import { Title, Heading, Text } from "../styles";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 const Section = styled.section`
   min-height: 60vh;
@@ -78,54 +80,52 @@ const InfoValue = styled.span`
 `;
 
 export default function About() {
+  const { language } = useLanguage();
+  const t = translations[language].about;
+
   return (
     <Section id="about">
       <Container>
         <Header>
-          <Title>[ ABOUT ]</Title>
-          <Heading>Who I Am</Heading>
+          <Title>{t.title}</Title>
+          <Heading>{t.heading}</Heading>
         </Header>
 
         <Content>
           <Paragraph>
-            I'm a <Highlight>frontend development student</Highlight> at EC
-            Utbildning in Sweden, passionate about building accessible and
-            user-friendly web interfaces. My journey into tech started with a
-            curiosity about how websites work, and has grown into a deep
-            interest in creating meaningful digital experiences.
+            {t.paragraph1.split(t.highlights.student)[0]}
+            <Highlight>{t.highlights.student}</Highlight>
+            {t.paragraph1.split(t.highlights.student)[1]}
           </Paragraph>
 
           <Paragraph>
-            Currently studying React, TypeScript, and modern web development
-            practices. I bring a unique background in{" "}
-            <Highlight>SEO, content creation, and customer service</Highlight> —
-            skills that help me understand both the technical and human sides of
-            building products.
+            {t.paragraph2.split(t.highlights.background)[0]}
+            <Highlight>{t.highlights.background}</Highlight>
+            {t.paragraph2.split(t.highlights.background)[1]}
           </Paragraph>
 
           <Paragraph>
-            I'm looking for a{" "}
-            <Highlight>LIA internship starting April 2026</Highlight> where I
-            can contribute to real projects, learn from experienced developers,
-            and grow as part of a collaborative team.
+            {t.paragraph3.split(t.highlights.internship)[0]}
+            <Highlight>{t.highlights.internship}</Highlight>
+            {t.paragraph3.split(t.highlights.internship)[1]}
           </Paragraph>
 
           <InfoGrid>
             <InfoItem>
-              <InfoLabel>Location</InfoLabel>
-              <InfoValue>Stockholm, Sweden</InfoValue>
+              <InfoLabel>{t.infoLabels.location}</InfoLabel>
+              <InfoValue>{t.infoValues.location}</InfoValue>
             </InfoItem>
             <InfoItem>
-              <InfoLabel>Education</InfoLabel>
-              <InfoValue>EC Utbildning (2025–2027)</InfoValue>
+              <InfoLabel>{t.infoLabels.education}</InfoLabel>
+              <InfoValue>{t.infoValues.education}</InfoValue>
             </InfoItem>
             <InfoItem>
-              <InfoLabel>Languages</InfoLabel>
-              <InfoValue>English, Swedish, Korean</InfoValue>
+              <InfoLabel>{t.infoLabels.languages}</InfoLabel>
+              <InfoValue>{t.infoValues.languages}</InfoValue>
             </InfoItem>
             <InfoItem>
-              <InfoLabel>LIA Availability</InfoLabel>
-              <InfoValue>April 2026</InfoValue>
+              <InfoLabel>{t.infoLabels.availability}</InfoLabel>
+              <InfoValue>{t.infoValues.availability}</InfoValue>
             </InfoItem>
           </InfoGrid>
         </Content>

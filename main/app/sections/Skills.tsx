@@ -3,6 +3,8 @@
 import styled from "@emotion/styled";
 import { skillCategories } from "../data/skillsData";
 import { Title, Heading, Text, BadgeMD } from "../styles";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 const Section = styled.section`
   min-height: 60vh;
@@ -66,13 +68,15 @@ const SkillsList = styled.div`
 `;
 
 export default function Skills() {
+  const { language } = useLanguage();
+  const t = translations[language].skills;
+
   return (
     <Section id="skills">
       <Container>
         <Header>
-          <Title>[ SKILLS ]</Title>
-          <Heading>Tech Stack</Heading>
-          <Text>Technologies I work with</Text>
+          <Title>{t.title}</Title>
+          <Heading>{t.heading}</Heading>
         </Header>
 
         <SkillsGrid>
