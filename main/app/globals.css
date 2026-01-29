@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Coiny&family=Jersey+15&family=Noto+Sans+Mono:wght@100..900&family=Tiny5&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 body,
 * {
   margin: 0;

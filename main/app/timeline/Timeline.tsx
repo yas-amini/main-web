@@ -159,7 +159,7 @@ export default function Timeline() {
   const [selectedExp, setSelectedExp] = useState<Experience | null>(null);
 
   return (
-    <Section>
+    <Section id="experience">
       <Container>
         <Header>
           <Title>[ EXPERIENCES ]</Title>

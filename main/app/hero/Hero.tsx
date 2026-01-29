@@ -2,13 +2,15 @@
 import styled from "@emotion/styled";
 import { Title, Heading, Text, Span } from "../styles";
 
-const Container = styled.section`
+const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1.5rem;
   min-height: 100vh;
   text-align: center;
+  padding: 6rem 2rem 4rem;
   background: var(--bg-primary);
   transition: background-color 0.3s ease;
 `;
@@ -26,6 +28,51 @@ const ImageWrapper = styled.div`
     image-rendering: high-quality;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+  }
+`;
+
+const AvailabilityBadge = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 9999px;
+  color: #22c55e;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #22c55e;
+    border-radius: 9999px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+`;
+
+const Location = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
   }
 `;
 
@@ -67,7 +114,7 @@ const Icon = styled.div`
     transition: color 0.3s ease;
   }
 
-  .a:hover & {
+  &:hover {
     background: var(--accent-dark);
     border-color: var(--accent);
     box-shadow: var(--shadow-glow);
@@ -78,31 +125,80 @@ const Icon = styled.div`
   }
 `;
 
+const ScrollIndicator = styled.div`
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  animation: bounce 2s infinite;
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(8px);
+    }
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+`;
+
 export default function Hero() {
   return (
-    <Container>
-      <Title>[ DEVELOPER ]</Title>
+    <Section id="hero">
+      <AvailabilityBadge>Seeking LIA Internship — April 2026</AvailabilityBadge>
+
+      <Title>[ FRONTEND DEVELOPER ]</Title>
       <Heading>Yasamin Amini</Heading>
+
       <ImageWrapper>
         <img
           src="/barbie.png"
-          alt="Profile"
+          alt="Yasamin Amini"
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </ImageWrapper>
 
       <Text>
-        I build accessible, user-friendly web interfaces using HTML, CSS and
-        JavaScript. Currently studying React & TypeScript — seeking a LIA
-        internship (Apr 2026) to contribute to real product teams in Sweden.
+        Building accessible, user-friendly web interfaces with React &
+        TypeScript.
+        <br />
+        Currently studying frontend development at EC Utbildning.
       </Text>
 
-      <Text>
-        Scroll to read about my experiences or checkout my projects on github!
-      </Text>
+      <Location>
+        <svg
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+        Stockholm, Sweden
+      </Location>
 
       <LinksRow>
-        {/* GitHub */}
         <Link
           href="https://github.com/yas-amini"
           target="_blank"
@@ -117,7 +213,6 @@ export default function Hero() {
           <Span>GitHub</Span>
         </Link>
 
-        {/* LinkedIn */}
         <Link
           href="https://www.linkedin.com/in/yasaminamini/"
           target="_blank"
@@ -132,7 +227,6 @@ export default function Hero() {
           <Span>LinkedIn</Span>
         </Link>
 
-        {/* Resume */}
         <Link
           href="/CV-EN.pdf"
           target="_blank"
@@ -156,6 +250,22 @@ export default function Hero() {
           <Span>Resume</Span>
         </Link>
       </LinksRow>
-    </Container>
+
+      <ScrollIndicator>
+        <span>Scroll to explore</span>
+        <svg
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
+      </ScrollIndicator>
+    </Section>
   );
 }
