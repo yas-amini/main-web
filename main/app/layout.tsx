@@ -69,7 +69,6 @@ export default function RootLayout({
         <ThemeProvider>
           <LanguageProvider>
             <ThemeToggle />
-            <LanguageToggle />
             <main>{children}</main>
           </LanguageProvider>
         </ThemeProvider>

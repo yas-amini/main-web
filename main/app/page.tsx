@@ -6,6 +6,7 @@ import Hero from "./hero/Hero";
 import Projects from "./sections/Projects";
 import Timeline from "./timeline/Timeline";
 import Contact from "./sections/Contact";
+import LanguageToggle from "./components/LanguageToggle";
 
 const Container = styled.div`
   position: relative;
@@ -18,6 +19,7 @@ const Container = styled.div`
 export default function Page() {
   return (
     <Container>
+      <LanguageToggle />
       <Navigation />
       <Hero />
       <Projects />

@@ -1,15 +1,15 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { useLanguage } from "../context/LanguageContext";
 
 const ToggleButton = styled.button`
   position: fixed;
   top: 1.5rem;
-  right: 5rem; /* Positioned to the left of the theme toggle */
+  right: 6rem;
   z-index: 100;
-  height: 2rem;
-  padding: 0 0.75rem;
+  height: 3rem;
+  padding: 0 1rem;
   border-radius: 9999px;
   border: 1px solid var(--border-color);
   background: var(--bg-secondary);
@@ -17,9 +17,9 @@ const ToggleButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
   transition: all 0.3s ease;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-primary);
   font-family: inherit;
@@ -35,8 +35,8 @@ const ToggleButton = styled.button`
   }
 `;
 
-const LanguageLabel = styled.span<{ isActive: boolean }>`
-  opacity: ${({ isActive }) => (isActive ? 1 : 0.5)};
+const LanguageLabel = styled.span<{ $isActive: boolean }>`
+  opacity: ${({ $isActive }) => ($isActive ? 1 : 0.4)};
   transition: opacity 0.3s ease;
 `;
 
@@ -45,7 +45,27 @@ const Separator = styled.span`
 `;
 
 export default function LanguageToggle() {
-  const { language, toggleLanguage } = useLanguage();
+  const [language, setLanguage] = useState<"en" | "sv">("en");
+
+  // Load saved language on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("language") as "en" | "sv";
+    if (saved === "en" || saved === "sv") {
+      setLanguage(saved);
+    }
+  }, []);
+
+  // Save language when it changes
+  useEffect(() => {
+    localStorage.setItem("language", language);
+    window.dispatchEvent(
+      new CustomEvent("languageChange", { detail: language }),
+    );
+  }, [language]);
+
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "en" ? "sv" : "en"));
+  };
 
   return (
     <ToggleButton
@@ -53,9 +73,9 @@ export default function LanguageToggle() {
       aria-label={`Switch to ${language === "en" ? "Swedish" : "English"}`}
       title={`Switch to ${language === "en" ? "Swedish" : "English"}`}
     >
-      <LanguageLabel isActive={language === "en"}>EN</LanguageLabel>
+      <LanguageLabel $isActive={language === "en"}>EN</LanguageLabel>
       <Separator>/</Separator>
-      <LanguageLabel isActive={language === "sv"}>SV</LanguageLabel>
+      <LanguageLabel $isActive={language === "sv"}>SV</LanguageLabel>
     </ToggleButton>
   );
 }
