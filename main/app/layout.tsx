@@ -5,7 +5,7 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Portfolio | Yasamin Amini 🚀",
-  description: "App & Web developer",
+  description: "Web developer",
   icons: {
     icon: "/character.png",
   },
