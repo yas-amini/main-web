@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
 import { ThemeProvider } from "./context/ThemeContext";
+import { LanguageProvider } from "./context/LanguageContext";
+import ThemeToggle from "./components/ThemeToggle";
+import LanguageToggle from "./components/LanguageToggle";
 
 export const metadata: Metadata = {
   title: "Yasamin Amini | Frontend Developer Portfolio",
@@ -64,7 +67,11 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeProvider>
-          <main>{children}</main>
+          <LanguageProvider>
+            <ThemeToggle />
+            <LanguageToggle />
+            <main>{children}</main>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
