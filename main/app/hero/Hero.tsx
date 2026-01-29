@@ -9,6 +9,8 @@ const Container = styled.section`
   gap: 2rem;
   min-height: 100vh;
   text-align: center;
+  background: var(--bg-primary);
+  transition: background-color 0.3s ease;
 `;
 
 const ImageWrapper = styled.div`
@@ -16,8 +18,8 @@ const ImageWrapper = styled.div`
   height: 10rem;
   border-radius: 9999px;
   overflow: hidden;
-  border: 3px solid rgba(168, 85, 247, 0.5);
-  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+  border: 3px solid var(--accent);
+  box-shadow: var(--shadow-glow);
   position: relative;
 
   img {
@@ -50,9 +52,9 @@ const Icon = styled.div`
   width: 4rem;
   height: 4rem;
   border-radius: 9999px;
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--bg-secondary);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(168, 85, 247, 0.4);
+  border: 1px solid var(--border-hover);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,17 +63,17 @@ const Icon = styled.div`
   svg {
     width: 1.5rem;
     height: 1.5rem;
-    color: #e9d5ff;
+    color: var(--accent-light);
     transition: color 0.3s ease;
   }
 
   .a:hover & {
-    background: rgba(88, 28, 135, 0.5);
-    border-color: rgba(192, 132, 252, 0.6);
-    box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+    background: var(--accent-dark);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-glow);
 
     svg {
-      color: white;
+      color: var(--text-primary);
     }
   }
 `;
@@ -105,6 +107,7 @@ export default function Hero() {
           href="https://github.com/yas-amini"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my GitHub profile"
         >
           <Icon>
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -119,6 +122,7 @@ export default function Hero() {
           href="https://www.linkedin.com/in/yasaminamini/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit my LinkedIn profile"
         >
           <Icon>
             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -129,7 +133,12 @@ export default function Hero() {
         </Link>
 
         {/* Resume */}
-        <Link href="/CV-EN.pdf" target="_blank" rel="noopener noreferrer">
+        <Link
+          href="/CV-EN.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Download my resume PDF"
+        >
           <Icon>
             <svg
               viewBox="0 0 24 24"

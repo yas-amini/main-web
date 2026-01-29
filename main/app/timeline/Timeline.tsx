@@ -7,12 +7,13 @@ import Modal from "./Modal";
 import Card from "./Card";
 import { Title, Heading, Text } from "../styles";
 
-
 const Section = styled.section`
   min-height: 100vh;
   position: relative;
   z-index: 10;
   padding: 4rem 2rem 6rem;
+  background: var(--bg-primary);
+  transition: background-color 0.3s ease;
 `;
 
 const Container = styled.div`
@@ -27,9 +28,8 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
- gap:2rem;
+  gap: 2rem;
 `;
-
 
 const TimelineWrapper = styled.div`
   position: relative;
@@ -42,7 +42,7 @@ const TimelineLine = styled.div`
   top: 0;
   bottom: 4rem;
   width: 2px;
-  background: linear-gradient(to bottom, #8b5cf6, #a78bfa);
+  background: linear-gradient(to bottom, var(--accent-dark), var(--accent));
   opacity: 0.5;
 `;
 
@@ -56,14 +56,15 @@ interface TimelineItemProps {
   isEven: boolean;
 }
 
-const TimelineItem = styled.div <TimelineItemProps>`
+const TimelineItem = styled.div<TimelineItemProps>`
   position: relative;
   cursor: pointer;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  ${props => props.isEven ? 'flex-direction: row;' : 'flex-direction: row-reverse;'}
-  
+  ${(props) =>
+    props.isEven ? "flex-direction: row;" : "flex-direction: row-reverse;"}
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
@@ -77,7 +78,7 @@ const TimelineMarker = styled.div`
   transform: translateX(-50%);
   top: 1.5rem;
   z-index: 20;
-  
+
   @media (max-width: 768px) {
     display: none;
   }
@@ -87,8 +88,8 @@ const MarkerDot = styled.div`
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 9999px;
-  border: 2px solid #0a0a0f;
-  background: #a78bfa;
+  border: 2px solid var(--bg-primary);
+  background: var(--accent);
 `;
 
 interface CardWrapperProps {
@@ -99,8 +100,8 @@ const CardWrapper = styled.div<CardWrapperProps>`
   position: relative;
   z-index: 10;
   width: calc(50% - 2rem);
-  ${props => props.isEven ? 'padding-right: 2rem;' : 'padding-left: 2rem;'}
-  
+  ${(props) => (props.isEven ? "padding-right: 2rem;" : "padding-left: 2rem;")}
+
   @media (max-width: 768px) {
     width: 100%;
     max-width: 32rem;
@@ -108,15 +109,9 @@ const CardWrapper = styled.div<CardWrapperProps>`
   }
 `;
 
-
-
-
-
-
-
 const CardSpacer = styled.div`
   width: calc(50% - 2rem);
-  
+
   @media (max-width: 768px) {
     display: none;
   }
@@ -135,13 +130,13 @@ const JourneyIcon = styled.div`
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  background: #a78bfa;
+  background: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   span {
-    color: white;
+    color: var(--text-primary);
     font-size: 1rem;
   }
 `;
@@ -152,10 +147,10 @@ const JourneyLabel = styled.div`
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  
+
   span {
     font-size: 0.75rem;
-    color: #64748b;
+    color: var(--text-muted);
     font-weight: 500;
   }
 `;
@@ -170,7 +165,8 @@ export default function Timeline() {
           <Title>[ EXPERIENCES ]</Title>
           <Heading>My Journey</Heading>
           <Text>
-            A timeline of my experiences  <br />Click on each experience to learn more
+            A timeline of my experiences <br />
+            Click on each experience to learn more
           </Text>
         </Header>
 

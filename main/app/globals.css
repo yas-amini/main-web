@@ -1,19 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Jersey+15&family=Noto+Sans+Mono:wght@100..900&family=Tiny5&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Coiny&family=Jersey+15&family=Noto+Sans+Mono:wght@100..900&family=Tiny5&display=swap");
 
 body,
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Prevent initial flash */
+/* Dark theme (default) */
+:root,
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #0f0f14;
+  --bg-card: #0f0f14;
+
+  /* Text colors */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  /* Accent colors */
+  --accent: #a78bfa;
+  --accent-light: #c4b5fd;
+  --accent-dark: #8b5cf6;
+
+  /* Borders */
+  --border-color: rgba(30, 41, 59, 0.8);
+  --border-hover: rgba(139, 92, 246, 0.4);
+
+  /* Shadows */
+  --shadow-text: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px rgba(168, 85, 247, 0.3);
+
+  /* Fonts */
+  --pixel: "Tiny5", serif;
+  --bubbly: "Coiny", cursive;
+  --serif: "Jersey 15", serif;
+  --mono: "Noto Sans Mono", monospace;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+
+  /* Text colors */
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  /* Accent colors */
+  --accent: #7c3aed;
+  --accent-light: #8b5cf6;
+  --accent-dark: #6d28d9;
+
+  /* Borders */
+  --border-color: rgba(148, 163, 184, 0.5);
+  --border-hover: rgba(124, 58, 237, 0.5);
+
+  /* Shadows */
+  --shadow-text: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+/* Prevent initial flash - start with dark */
 html {
   background: #0a0a0f;
+}
+
+[data-theme="light"] body {
+  background: var(--bg-primary);
 }
 
 body {
   font-family: sans-serif;
   overflow-x: hidden;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 main {
@@ -28,13 +97,4 @@ a,
 button {
   cursor: pointer;
   transition: 0.3s;
-}
-
-
-:root {
-  /* Fonts */
-  --pixel: 'Tiny5', serif;
-  --bubbly: 'Coiny', cursive;
-  --serif: 'Jersey 15', serif;
-  --mono: 'Noto Sans Mono', monospace;
 }

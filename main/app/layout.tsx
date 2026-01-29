@@ -1,11 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
 import Script from "next/script";
+import { ThemeProvider } from "./context/ThemeContext";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Yasamin Amini 🚀",
-  description: "Web developer",
+  title: "Yasamin Amini | Frontend Developer Portfolio",
+  description:
+    "Frontend developer specializing in React, TypeScript, and accessible web interfaces. Seeking LIA internship opportunities in Sweden from April 2026.",
+  keywords: [
+    "frontend developer",
+    "React",
+    "TypeScript",
+    "web developer",
+    "Sweden",
+    "internship",
+    "LIA",
+  ],
+  authors: [{ name: "Yasamin Amini" }],
+  openGraph: {
+    title: "Yasamin Amini | Frontend Developer",
+    description:
+      "Frontend developer building accessible, user-friendly web interfaces with React & TypeScript.",
+    type: "website",
+  },
   icons: {
     icon: "/character.png",
   },
@@ -17,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +63,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <main>{children}</main>
+        <ThemeProvider>
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

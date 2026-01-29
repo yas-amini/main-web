@@ -19,7 +19,7 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: 1,
-    period: "03/2025 — 2027",
+    period: "2025.03 — 2027",
     title: "Frontend Development Student",
     company: "EC Utbildning • 400 YHP",
     shortDesc:
@@ -40,7 +40,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 2,
-    period: "09/2019 — 06/2021",
+    period: "2019.09 — 2021.06",
     title: "Webmaster",
     company: "University West • 120 hp",
     shortDesc:
@@ -61,7 +61,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 3,
-    period: "01/2022 — 05/2022",
+    period: "2022.01 — 2022.05",
     title: "SEO & Content Producer",
     company: "Omnitas Consulting",
     shortDesc:
@@ -80,7 +80,7 @@ export const experiences: Experience[] = [
     id: 4,
     period: "2014 — 2019",
     title: "Content Creator & Social Media Manager",
-    company: "Hold That Pose For Me • Independent Project",
+    company: "Hold That Pose For Me",
     shortDesc:
       "Documented Sweden's street dance scene, creating digital content and managing social media.",
     fullDesc:
@@ -111,7 +111,7 @@ export const experiences: Experience[] = [
   },
   {
     id: 6,
-    period: "09/2011 — 06/2014",
+    period: "2011.09 — 2014.06",
     title: "Korean Studies",
     company: "Stockholm University • University Education • 120 hp",
     shortDesc:
