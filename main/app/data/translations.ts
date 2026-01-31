@@ -67,6 +67,15 @@ export const translations = {
       viewCode: "View Code",
     },
 
+    // Timeline Section
+    timeline: {
+      title: "[ EXPERIENCES ]",
+      heading: "My Journey",
+      description1: "A timeline of my experiences",
+      description2: "Click on each experience to learn more",
+      beginning: "The Beginning",
+    },
+
     // Contact Section
     contact: {
       title: "[ CONTACT ]",
@@ -87,6 +96,7 @@ export const translations = {
 
     // Footer / Navigation
     nav: {
+      logo: "YASAMIN",
       about: "About",
       skills: "Skills",
       projects: "Projects",
@@ -121,7 +131,7 @@ export const translations = {
         "Jag söker en LIA-praktik med start april 2026 där jag kan bidra till riktiga projekt, lära mig av erfarna utvecklare och växa som en del av ett samarbetande team.",
       highlights: {
         student: "frontendutvecklingsstudent",
-        background: "SEO, innehållsskapande och kundservice",
+        background: "inom SEO, innehållsskapande och kundservice",
         internship: "LIA-praktik med start april 2026",
       },
       infoLabels: {
@@ -157,6 +167,15 @@ export const translations = {
       viewCode: "Visa kod",
     },
 
+    // Timeline Section
+    timeline: {
+      title: "[ ERFARENHETER ]",
+      heading: "Min resa",
+      description1: "En tidslinje över mina upplevelser",
+      description2: "Klicka på varje upplevelse för att läsa mer",
+      beginning: "Början",
+    },
+
     // Contact Section
     contact: {
       title: "[ KONTAKT ]",
@@ -177,6 +196,7 @@ export const translations = {
 
     // Footer / Navigation
     nav: {
+      logo: "YASAMIN",
       about: "Om mig",
       skills: "Kompetenser",
       projects: "Projekt",

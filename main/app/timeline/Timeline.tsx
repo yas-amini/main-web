@@ -6,6 +6,8 @@ import { Experience, experiences } from "./timelineData";
 import Modal from "./Modal";
 import Card from "./Card";
 import { Title, Heading, Text } from "../styles";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -157,16 +159,18 @@ const JourneyLabel = styled.div`
 
 export default function Timeline() {
   const [selectedExp, setSelectedExp] = useState<Experience | null>(null);
+  const { language } = useLanguage();
+  const t = translations[language].timeline;
 
   return (
     <Section id="experience">
       <Container>
         <Header>
-          <Title>[ EXPERIENCES ]</Title>
-          <Heading>My Journey</Heading>
+          <Title>{t.title}</Title>
+          <Heading>{t.heading}</Heading>
           <Text>
-            A timeline of my experiences <br />
-            Click on each experience to learn more
+            {t.description1} <br />
+            {t.description2}
           </Text>
         </Header>
 
@@ -198,7 +202,7 @@ export default function Timeline() {
                   <span>✨</span>
                 </JourneyIcon>
                 <JourneyLabel>
-                  <span>The Beginning</span>
+                  <span>{t.beginning}</span>
                 </JourneyLabel>
               </JourneyCircle>
             </JourneyStart>

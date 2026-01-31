@@ -3,6 +3,7 @@
 import styled from "@emotion/styled";
 import Navigation from "./components/Navigation";
 import Hero from "./hero/Hero";
+import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Timeline from "./timeline/Timeline";
 import Contact from "./sections/Contact";
@@ -20,6 +21,7 @@ export default function Page() {
     <Container>
       <Navigation />
       <Hero />
+      <About />
       <Projects />
       <Timeline />
       <Contact />

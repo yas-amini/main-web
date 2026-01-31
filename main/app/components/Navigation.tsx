@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../data/translations";
 
 const Nav = styled.nav`
   position: fixed;
@@ -32,6 +34,7 @@ const Logo = styled.a`
   color: var(--text-primary);
   text-decoration: none;
   transition: color 0.3s ease;
+  font-family: "Cute Font", sans-serif;
 
   &:hover {
     color: var(--accent);
@@ -130,15 +133,11 @@ const MenuButton = styled.button`
   }
 `;
 
-const navItems = [
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
-
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
+  const { language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navT = translations[language].nav;
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
@@ -147,14 +146,21 @@ export default function Navigation() {
   return (
     <Nav>
       <Container>
-        <Logo href="#hero">Yasamin</Logo>
+        <Logo href="#hero">{navT.logo}</Logo>
 
         <NavLinks isOpen={isMenuOpen}>
-          {navItems.map((item) => (
-            <NavLink key={item.href} href={item.href} onClick={handleNavClick}>
-              {item.label}
-            </NavLink>
-          ))}
+          <NavLink href="#about" onClick={handleNavClick}>
+            {navT.about}
+          </NavLink>
+          <NavLink href="#skills" onClick={handleNavClick}>
+            {navT.skills}
+          </NavLink>
+          <NavLink href="#projects" onClick={handleNavClick}>
+            {navT.projects}
+          </NavLink>
+          <NavLink href="#contact" onClick={handleNavClick}>
+            {navT.contact}
+          </NavLink>
         </NavLinks>
 
         <RightSection>

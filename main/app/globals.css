@@ -102,3 +102,10 @@ button {
   cursor: pointer;
   transition: 0.3s;
 }
+
+/* Cute Font */
+.cute-font-regular {
+  font-family: "Cute Font", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
