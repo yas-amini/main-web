@@ -3,6 +3,7 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
+import LanguageToggle from "./LanguageToggle";
 
 const Nav = styled.nav`
   position: fixed;
@@ -189,6 +190,8 @@ export default function Navigation() {
               </svg>
             )}
           </ThemeButton>
+
+          <LanguageToggle />
 
           <MenuButton
             onClick={() => setIsMenuOpen(!isMenuOpen)}
