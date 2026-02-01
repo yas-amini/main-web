@@ -6,9 +6,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface UseGsapOptions extends gsap.TweenVars {
+  scrollTrigger?: ScrollTrigger.Vars;
+}
+
 export const useGsap = (
-  ref: RefObject<HTMLElement>,
-  options: gsap.TweenVars & { scrollTrigger?: gsap.ScrollTriggerVars },
+  ref: RefObject<HTMLElement | null>,
+  options: UseGsapOptions,
 ) => {
   useEffect(() => {
     const element = ref.current;
@@ -37,8 +41,12 @@ export const useGsap = (
 
       return () => {
         animation.kill();
-        ScrollTrigger.getById(animation.scrollTrigger?.id as string)?.kill();
+        ScrollTrigger.getAll().forEach((trigger) => {
+          if (trigger.trigger === element) {
+            trigger.kill();
+          }
+        });
       };
     }
-  }, [ref, options]);
+  }, [ref, JSON.stringify(options)]);
 };

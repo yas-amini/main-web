@@ -84,9 +84,9 @@ export default function About() {
   const { language } = useLanguage();
   const t = translations[language].about;
 
-  const titleRef = useRef(null);
-  const headingRef = useRef(null);
-  const contentRef = useRef(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useGsap(titleRef, { duration: 0.8, ease: "power3.out" });
   useGsap(headingRef, { duration: 0.8, ease: "power3.out", delay: 0.2 });
