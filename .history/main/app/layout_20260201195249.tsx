@@ -30,14 +30,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        media: "(prefers-color-scheme: light)",
-        url: "/favicon-dark.svg",
-        type: "image/svg+xml",
+        media: '(prefers-color-scheme: light)',
+        url: '/favicon-light.ico',
+        href: '/favicon-light.ico',
       },
       {
-        media: "(prefers-color-scheme: dark)",
-        url: "/favicon-light.svg",
-        type: "image/svg+xml",
+        media: '(prefers-color-scheme: dark)',
+        url: '/favicon-dark.ico',
+        href: '/favicon-dark.ico',
       },
     ],
   },
@@ -53,15 +53,8 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet" />
 
         {/* Google Analytics */}
         <Script
