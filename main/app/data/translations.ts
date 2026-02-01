@@ -179,7 +179,7 @@ export const translations = {
     // Contact Section
     contact: {
       title: "[ KONTAKT ]",
-      heading: "Låt oss höras",
+      heading: "Kontakta Mig",
       description:
         "Intresserad av att samarbeta eller har frågor om mitt arbete? Jag vill gärna höra från dig.",
       nameLabel: "Namn",

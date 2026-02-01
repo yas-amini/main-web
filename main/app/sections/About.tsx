@@ -1,9 +1,11 @@
 "use client";
 
+import { useRef } from "react";
 import styled from "@emotion/styled";
 import { Title, Heading, Text } from "../styles";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../data/translations";
+import { useGsap } from "../hooks/useGsap";
 
 const Section = styled.section`
   min-height: 60vh;
@@ -83,15 +85,27 @@ export default function About() {
   const { language } = useLanguage();
   const t = translations[language].about;
 
+  const titleRef = useRef(null);
+  const headingRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useGsap(titleRef, { duration: 0.8, ease: "power3.out" });
+  useGsap(headingRef, { duration: 0.8, ease: "power3.out", delay: 0.2 });
+  useGsap(contentRef, { duration: 0.8, ease: "power3.out", delay: 0.4 });
+
   return (
     <Section id="about">
       <Container>
         <Header>
-          <Title>{t.title}</Title>
-          <Heading>{t.heading}</Heading>
+          <div ref={titleRef}>
+            <Title>{t.title}</Title>
+          </div>
+          <div ref={headingRef}>
+            <Heading>{t.heading}</Heading>
+          </div>
         </Header>
 
-        <Content>
+        <Content ref={contentRef}>
           <Paragraph>
             {t.paragraph1.split(t.highlights.student)[0]}
             <Highlight>{t.highlights.student}</Highlight>
