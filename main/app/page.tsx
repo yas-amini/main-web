@@ -8,6 +8,7 @@ import Projects from "./sections/Projects";
 import Timeline from "./timeline/Timeline";
 import Contact from "./sections/Contact";
 import Particles from "./components/Particles";
+import ClickSpark from "./components/ClickSpark";
 
 const Container = styled.div`
   position: relative;
@@ -30,26 +31,34 @@ const ParticlesBackground = styled.div`
 
 export default function Page() {
   return (
-    <Container>
-      <ParticlesBackground>
-        <Particles
-          particleColors={["#ffffff", "#a855f7", "#3b82f6"]}
-          particleCount={200}
-          particleSpread={10}
-          speed={0.05}
-          particleBaseSize={80}
-          moveParticlesOnHover={false}
-          alphaParticles={true}
-          disableRotation={false}
-          sizeRandomness={0.5}
-        />
-      </ParticlesBackground>
-      <Navigation />
-      <Hero />
-      <About />
-      <Projects />
-      <Timeline />
-      <Contact />
-    </Container>
+    <ClickSpark
+      sparkColor="#ffffffff"
+      sparkSize={10}
+      sparkRadius={35}
+      sparkCount={8}
+      duration={400}
+    >
+      <Container>
+        <ParticlesBackground>
+          <Particles
+            particleColors={["#ffffff", "#ffffffff", "#ffffffff"]}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.05}
+            particleBaseSize={80}
+            moveParticlesOnHover={false}
+            alphaParticles={true}
+            disableRotation={false}
+            sizeRandomness={0.5}
+          />
+        </ParticlesBackground>
+        <Navigation />
+        <Hero />
+        <About />
+        <Projects />
+        <Timeline />
+        <Contact />
+      </Container>
+    </ClickSpark>
   );
 }

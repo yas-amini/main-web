@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "motion-icons-react/style.css";
 import Script from "next/script";
 import { ThemeProvider } from "./context/ThemeContext";
 import { LanguageProvider } from "./context/LanguageContext";
