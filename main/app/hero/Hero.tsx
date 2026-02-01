@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import { Title, Heading, Text, Span } from "../styles";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../data/translations";
-import Particles from "../components/Particles";
 
 const Section = styled.section`
   display: flex;
@@ -14,19 +13,9 @@ const Section = styled.section`
   min-height: 100vh;
   text-align: center;
   padding: 6rem 2rem 4rem;
-  background: var(--bg-primary);
-  transition: background-color 0.3s ease;
+  /* Background removed so particles show through */
   position: relative;
-  overflow: hidden;
-`;
-
-const ParticleWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+  z-index: 1;
 `;
 
 const HeroContent = styled.div`
@@ -183,20 +172,6 @@ export default function Hero() {
 
   return (
     <Section id="hero">
-      <ParticleWrapper>
-        <Particles
-          particleColors={["#ffffff"]}
-          particleCount={600}
-          particleSpread={20}
-          speed={0.1}
-          particleBaseSize={1.5}
-          moveParticlesOnHover={true}
-          particleHoverFactor={0.02}
-          alphaParticles={true}
-          disableRotation={false}
-          pixelRatio={1}
-        />
-      </ParticleWrapper>
       <HeroContent>
         <AvailabilityBadge>{t.badge}</AvailabilityBadge>
 
@@ -294,4 +269,3 @@ export default function Hero() {
     </Section>
   );
 }
-

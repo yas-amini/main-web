@@ -12,10 +12,9 @@ import { translations } from "../data/translations";
 const Section = styled.section`
   min-height: 100vh;
   position: relative;
-  z-index: 10;
+  z-index: 1;
   padding: 4rem 2rem 6rem;
-  background: var(--bg-primary);
-  transition: background-color 0.3s ease;
+  /* Background removed so particles show through */
 `;
 
 const Container = styled.div`
