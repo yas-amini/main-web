@@ -76,7 +76,7 @@ body,
   --text-disabled: #64748b; /* Disabled text (contrast 3.8:1) */
 
   /* Primary Accent - Cyan/Teal (your brand color) */
-  --accent: #67e8f9; /* Primary accent (contrast 12.5:1) */
+  --accent: #67bff9; /* Primary accent (contrast 12.5:1) */
   --accent-hover: #83e6f7; /* Accent hover - lighter */
   --accent-active: #d622ee; /* Accent active/pressed */
   --accent-muted: rgba(103, 232, 249, 0.15); /* Subtle accent backgrounds */

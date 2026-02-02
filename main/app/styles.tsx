@@ -20,13 +20,16 @@ export const Title = styled.span`
 `;
 
 // Main heading (h1 equivalent)
-export const Heading = styled.h1`
+export const Heading = styled.h1<{ cuteFont?: boolean }>`
   font-size: var(--text-4xl);
   font-weight: var(--font-bold);
   color: var(--text-primary);
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   text-shadow: var(--shadow-text);
+  ${(props) => props.cuteFont && `
+    font-family: "Cute Font", sans-serif;
+  `}
 `;
 
 // Section heading (h2 equivalent)

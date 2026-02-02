@@ -6,6 +6,7 @@ import { translations } from "../data/translations";
 import { LinkedinIcon } from "../components/icons/Linkedin";
 import { GithubIcon } from "../components/icons/Github";
 import { FileTextIcon } from "../components/icons/FileText";
+import ShinyText from "../components/ShinyText";
 
 const Section = styled.section`
   display: flex;
@@ -180,7 +181,22 @@ export default function Hero() {
         <AvailabilityBadge>{t.badge}</AvailabilityBadge>
 
         <Title>{t.title}</Title>
-        <Heading>Yasamin Amini</Heading>
+
+
+        <Heading cuteFont>
+          <ShinyText
+            text="Yasamin Amini"
+            speed={4.3}
+            delay={0}
+            color="var(--text-secondary)"
+            shineColor="#ffffff"
+            spread={120}
+            direction="left"
+            yoyo={false}
+            pauseOnHover={false}
+            disabled={false}
+          />
+        </Heading>
 
         <ImageWrapper>
           <img

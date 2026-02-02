@@ -112,7 +112,7 @@ export const translations = {
       description:
         "Bygger tillgängliga, användarvänliga webbgränssnitt med React & TypeScript.",
       studying: "Studerar just nu frontendutveckling på EC Utbildning.",
-      location: "Stockholm, Sverige",
+      location: "Stockholm",
       github: "GitHub",
       linkedin: "LinkedIn",
       resume: "CV",
@@ -141,10 +141,10 @@ export const translations = {
         availability: "LIA-tillgänglighet",
       },
       infoValues: {
-        location: "Stockholm, Sverige",
+        location: "Stockholm",
         education: "EC Utbildning (2025–2027)",
-        languages: "Engelska, Svenska, Koreanska",
-        availability: "April 2026",
+        languages: "Engelska, Svenska, Koreanska, Persiska",
+        availability: "Omgående",
       },
     },
 
@@ -157,7 +157,7 @@ export const translations = {
     // Projects Section
     projects: {
       title: "[ PROJEKT ]",
-      heading: "Vad jag har byggt",
+      heading: "Mina Projekt",
       context: {
         school: "Skolprojekt",
         personal: "Personligt projekt",

@@ -1,0 +1,7 @@
+# VS Code Local History
+.history/
+
+# Node modules (if accidentally created in root)
+node_modules/
+package-lock.json
+package.json
