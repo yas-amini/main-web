@@ -125,7 +125,7 @@ const Icon = styled.div`
   svg {
     width: 1.5rem;
     height: 1.5rem;
-    color: var(--accent-light);
+    color: var(--text-secondary);
     transition: color 0.3s ease;
   }
 
