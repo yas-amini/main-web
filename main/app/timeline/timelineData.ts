@@ -10,17 +10,18 @@ export interface Experience {
   shortDesc: string;
   fullDesc: string;
   skills: string[];
+  type: "education" | "work";
 }
 
 // ============================================================================
-// DATA
+// DATA (Sorted by date - newest first)
 // ============================================================================
 
 export const experiences: Experience[] = [
   {
     id: 1,
-    period: "2025.03 — 2027",
-    title: "Frontend Development Student",
+    period: "2025 — 2027",
+    title: "Frontend Development",
     company: "EC Utbildning • 400 YHP",
     shortDesc:
       "Comprehensive frontend development program covering HTML, CSS, JavaScript, React, TypeScript, Angular, and UX/UI design.",
@@ -37,10 +38,29 @@ export const experiences: Experience[] = [
       "CSS",
       "UX/UI",
     ],
+    type: "education",
   },
   {
     id: 2,
-    period: "2019.09 — 2021.06",
+    period: "2022",
+    title: "SEO & Content Producer",
+    company: "Omnitas Consulting",
+    shortDesc:
+      "CMS management, SEO-optimized content creation, and digital marketing campaigns.",
+    fullDesc:
+      "Managed CMS and automation for research and article production for websites. Created SEO-optimized content and analyzed traffic data. Planned and executed digital marketing campaigns. Provided support in project coordination using Monday CMS.",
+    skills: [
+      "SEO",
+      "Content Production",
+      "CMS",
+      "Digital Marketing",
+      "Google Analytics",
+    ],
+    type: "work",
+  },
+  {
+    id: 3,
+    period: "2019 — 2021",
     title: "Webmaster",
     company: "University West • 120 hp",
     shortDesc:
@@ -58,23 +78,7 @@ export const experiences: Experience[] = [
       "Web Server Management",
       "UX/UI Design",
     ],
-  },
-  {
-    id: 3,
-    period: "2022.01 — 2022.05",
-    title: "SEO & Content Producer",
-    company: "Omnitas Consulting",
-    shortDesc:
-      "CMS management, SEO-optimized content creation, and digital marketing campaigns.",
-    fullDesc:
-      "Managed CMS and automation for research and article production for websites. Created SEO-optimized content and analyzed traffic data. Planned and executed digital marketing campaigns. Provided support in project coordination using Monday CMS.",
-    skills: [
-      "SEO",
-      "Content Production",
-      "CMS",
-      "Digital Marketing",
-      "Google Analytics",
-    ],
+    type: "education",
   },
   {
     id: 4,
@@ -92,6 +96,7 @@ export const experiences: Experience[] = [
       "Adobe Creative Suite",
       "Storytelling",
     ],
+    type: "work",
   },
   {
     id: 5,
@@ -108,12 +113,13 @@ export const experiences: Experience[] = [
       "Inventory Management",
       "Communication",
     ],
+    type: "work",
   },
   {
     id: 6,
-    period: "2011.09 — 2014.06",
+    period: "2011 — 2014",
     title: "Korean Studies",
-    company: "Stockholm University • University Education • 120 hp",
+    company: "Stockholm University • 120 hp",
     shortDesc:
       "Korean language, culture, society, politics, and inter-Korean relations.",
     fullDesc:
@@ -126,5 +132,6 @@ export const experiences: Experience[] = [
       "Academic Research",
       "Literature Studies",
     ],
+    type: "education",
   },
 ];

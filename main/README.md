@@ -1,4 +1,4 @@
-# Linneaeas
+# Yasamin Amini
 
 This is a [Next.js](https://nextjs.org) project using TypeScript, Emotion for styling, and Storybook for component development.
 
@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org) project using TypeScript, Emotion for st
 
 First, run the development server:
 
-```bash
+````bash
 npm run dev
 
 
@@ -63,3 +63,4 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+````

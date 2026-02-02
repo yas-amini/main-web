@@ -4,8 +4,9 @@ import { useEffect, useRef } from "react";
 import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
 
 import "./Particles.css";
+import { useTheme } from "../context/ThemeContext";
 
-const defaultColors = ["#ffffff", "#ffffff", "#ffffff"];
+const defaultColors = ["#0c8d00ff", "#b7fa00ff", "#ff0000ff"];
 
 const hexToRgb = (hex: string): [number, number, number] => {
   hex = hex.replace(/^#/, "");
@@ -107,7 +108,7 @@ const Particles = ({
   particleCount = 200,
   particleSpread = 10,
   speed = 0.1,
-  particleColors,
+  // particleColors, // We will determine colors based on theme, so this prop is not used directly here
   moveParticlesOnHover = false,
   particleHoverFactor = 1,
   alphaParticles = false,
@@ -120,6 +121,13 @@ const Particles = ({
 }: ParticlesProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
+  const { theme } = useTheme();
+
+  const darkThemeColors = ["#ffffff", "#ffffff", "#ffffff"];
+  const lightThemeColors = ["#cccccc", "#cccccc", "#cccccc"];
+
+  const currentParticleColors =
+    theme === "dark" ? darkThemeColors : lightThemeColors;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -163,10 +171,7 @@ const Particles = ({
     const positions = new Float32Array(count * 3);
     const randoms = new Float32Array(count * 4);
     const colors = new Float32Array(count * 3);
-    const palette =
-      particleColors && particleColors.length > 0
-        ? particleColors
-        : defaultColors;
+    const palette = currentParticleColors;
 
     for (let i = 0; i < count; i++) {
       let x, y, z, len;
@@ -261,7 +266,8 @@ const Particles = ({
     cameraDistance,
     disableRotation,
     pixelRatio,
-    particleColors,
+    theme,
+    currentParticleColors,
   ]);
 
   return (

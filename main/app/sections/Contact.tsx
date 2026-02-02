@@ -1,9 +1,11 @@
 "use client";
 
+import { useRef } from "react";
 import styled from "@emotion/styled";
 import { Title, Heading, Text, Span } from "../styles";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../data/translations";
+import { useGsap } from "../hooks/useGsap";
 
 const Section = styled.section`
   min-height: 50vh;
@@ -131,15 +133,21 @@ export default function Contact() {
   const t = translations[language].contact;
   const heroT = translations[language].hero;
 
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useGsap(headerRef, { duration: 0.8, ease: "power3.out" });
+  useGsap(cardRef, { duration: 0.8, ease: "power3.out", delay: 0.2 });
+
   return (
     <Section id="contact">
       <Container>
-        <Header>
+        <Header ref={headerRef}>
           <Title>{t.title}</Title>
           <Heading>{t.heading}</Heading>
         </Header>
 
-        <ContactCard>
+        <ContactCard ref={cardRef}>
           <CTA>{t.description}</CTA>
 
           <EmailLink href="mailto:yasamin.amini@email.com">

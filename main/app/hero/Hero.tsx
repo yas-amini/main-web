@@ -10,40 +10,115 @@ import ShinyText from "../components/ShinyText";
 
 const Section = styled.section`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
   min-height: 100vh;
-  text-align: center;
   padding: 6rem 2rem 4rem;
-  /* Background removed so particles show through */
   position: relative;
   z-index: 1;
 `;
 
-const HeroContent = styled.div`
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
+const HeroContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
   align-items: center;
-  gap: 1.5rem;
+  max-width: 72rem;
+  width: 100%;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+`;
+
+const ImageSide = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 900px) {
+    order: -1;
+  }
 `;
 
 const ImageWrapper = styled.div`
-  width: 10rem;
-  height: 10rem;
+  width: clamp(12rem, 20vw, 18rem);
+  height: clamp(12rem, 20vw, 18rem);
   border-radius: 9999px;
   overflow: hidden;
   border: 3px solid var(--accent);
   box-shadow: var(--shadow-glow);
   position: relative;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-glow-accent);
+  }
 
   img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     image-rendering: high-quality;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+  }
+`;
+
+const ContentSide = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  @media (max-width: 900px) {
+    align-items: center;
+  }
+`;
+
+const NameRow = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const RoleTagline = styled.span`
+  font-size: var(--text-lg);
+  color: var(--accent);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--tracking-wide);
+`;
+
+const Description = styled.p`
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 32rem;
+`;
+
+const MetaRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
+`;
+
+const Location = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+
+  svg {
+    width: 1rem;
+    height: 1rem;
   }
 `;
 
@@ -51,13 +126,13 @@ const AvailabilityBadge = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.375rem 0.75rem;
   background: rgba(34, 197, 94, 0.1);
   border: 1px solid rgba(34, 197, 94, 0.3);
   border-radius: 9999px;
   color: #22c55e;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
 
   &::before {
     content: "";
@@ -79,65 +154,35 @@ const AvailabilityBadge = styled.div`
   }
 `;
 
-const Location = styled.span`
+const SocialLinks = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  color: var(--text-muted);
-  font-size: 0.875rem;
-
-  svg {
-    width: 1rem;
-    height: 1rem;
-  }
+  gap: 0.75rem;
+  margin-top: 0.5rem;
 `;
 
-const LinksRow = styled.div`
-  display: flex;
-  gap: 1.5rem;
-  margin-top: 1rem;
-`;
-
-const Link = styled.a`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-  }
-`;
-
-const Icon = styled.div`
-  width: 4rem;
-  height: 4rem;
-  border-radius: 9999px;
-  background: var(--bg-secondary);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--border-hover);
+const SocialLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
 
   svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: var(--text-secondary);
-    transition: color 0.3s ease;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   &:hover {
-    background: var(--accent-dark);
+    background: var(--accent-muted);
     border-color: var(--accent);
-    box-shadow: var(--shadow-glow);
-
-    svg {
-      color: var(--text-primary);
-    }
+    color: var(--accent);
+    transform: translateY(-2px);
   }
 `;
 
@@ -151,23 +196,29 @@ const ScrollIndicator = styled.a`
   align-items: center;
   gap: 0.5rem;
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   text-decoration: none;
-  animation: bounce 2s infinite;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    animation: bounce 2s infinite;
+  }
 
   @keyframes bounce {
     0%,
     100% {
-      transform: translateX(-50%) translateY(0);
+      transform: translateY(0);
     }
     50% {
-      transform: translateX(-50%) translateY(8px);
+      transform: translateY(6px);
     }
-  }
-
-  svg {
-    width: 1.5rem;
-    height: 1.5rem;
   }
 `;
 
@@ -177,102 +228,95 @@ export default function Hero() {
 
   return (
     <Section id="hero">
-      <HeroContent>
-        <AvailabilityBadge>{t.badge}</AvailabilityBadge>
+      <HeroContainer>
+        <ImageSide>
+          <ImageWrapper>
+            <img src="/barbie.png" alt="Yasamin Amini" />
+          </ImageWrapper>
+        </ImageSide>
 
-        <Title>{t.title}</Title>
+        <ContentSide>
+          <AvailabilityBadge>{t.badge}</AvailabilityBadge>
 
+          <NameRow>
+            <Heading cuteFont>
+              <ShinyText
+                text="Yasamin Amini"
+                speed={4.3}
+                delay={0}
+                color="var(--text-primary)"
+                shineColor="var(--accent)"
+                spread={120}
+                direction="left"
+                yoyo={false}
+                pauseOnHover={false}
+                disabled={false}
+              />
+            </Heading>
+            <RoleTagline>{t.title}</RoleTagline>
+          </NameRow>
 
-        <Heading cuteFont>
-          <ShinyText
-            text="Yasamin Amini"
-            speed={4.3}
-            delay={0}
-            color="var(--text-secondary)"
-            shineColor="#ffffff"
-            spread={120}
-            direction="left"
-            yoyo={false}
-            pauseOnHover={false}
-            disabled={false}
-          />
-        </Heading>
+          <Description>
+            {t.description} {t.studying}
+          </Description>
 
-        <ImageWrapper>
-          <img
-            src="/barbie.png"
-            alt="Yasamin Amini"
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </ImageWrapper>
+          <MetaRow>
+            <Location>
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              {t.location}
+            </Location>
+          </MetaRow>
 
-        <Text>
-          {t.description}
-          <br />
-          {t.studying}
-        </Text>
-
-        <Location>
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-          {t.location}
-        </Location>
-
-        <LinksRow>
-          <Link
-            href="https://github.com/yas-amini"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my GitHub profile"
-          >
-            <Icon>
+          <SocialLinks>
+            <SocialLink
+              href="https://github.com/yas-amini"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+            >
               <GithubIcon />
-            </Icon>
-            <Span>{t.github}</Span>
-          </Link>
-
-          <Link
-            href="https://www.linkedin.com/in/yasaminamini/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit my LinkedIn profile"
-          >
-            <Icon>
+            </SocialLink>
+            <SocialLink
+              href="https://www.linkedin.com/in/yasaminamini/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
               <LinkedinIcon />
-            </Icon>
-            <Span>{t.linkedin}</Span>
-          </Link>
-
-          <Link
-            href={t.resumeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Download my resume PDF"
-          >
-            <Icon>
+            </SocialLink>
+            <SocialLink
+              href={t.resumeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Resume"
+              title="Download Resume"
+            >
               <FileTextIcon />
-            </Icon>
-            <Span>{t.resume}</Span>
-          </Link>
-        </LinksRow>
-      </HeroContent>
+            </SocialLink>
+          </SocialLinks>
+        </ContentSide>
+      </HeroContainer>
+
       <ScrollIndicator href="#about" aria-label="Scroll to about section">
-        Scroll Down
+        Scroll
         <svg
           fill="none"
           viewBox="0 0 24 24"
